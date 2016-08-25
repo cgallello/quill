@@ -124,11 +124,11 @@ class Clipboard extends Module {
       e.preventDefault();
     } else {
       let bodyTop = document.body.scrollTop;
-      this.container.focus();
+      //this.container.focus();
       setTimeout(() => {
         paste.call(this);
         document.body.scrollTop = bodyTop;
-        this.quill.selection.scrollIntoView();
+        //this.quill.selection.scrollIntoView();
       }, 1);
     }
     function paste() {
