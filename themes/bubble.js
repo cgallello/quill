@@ -100,11 +100,17 @@ class BubbleTooltip extends BaseTooltip {
   }
 }
 BubbleTooltip.TEMPLATE = [
-  '<span class="ql-tooltip-arrow"></span>',
+  /*'<span class="ql-tooltip-arrow"></span>',
+  '<div class="ql-tooltip-editor">',
+    '<input type="text" data-formula="e=mc^2" data-link="quilljs.com" data-video="Embed URL">',
+    '<a class="ql-close"></a>',
+  '</div>'*/
+  /* Purple custom - start */
   '<div class="ql-tooltip-editor">',
     '<input type="text" data-formula="e=mc^2" data-link="quilljs.com" data-video="Embed URL">',
     '<a class="ql-close"></a>',
   '</div>'
+  /* Purple custom - end */
 ].join('');
 
 

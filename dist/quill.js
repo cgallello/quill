@@ -9366,19 +9366,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function position(reference) {
 	      var left = reference.left + reference.width / 2 - this.root.offsetWidth / 2;
 	      var top = reference.bottom + this.quill.root.scrollTop;
-	      this.root.style.left = left + 'px';
+	      /*this.root.style.left = left + 'px';*/
 	      this.root.style.top = top + 'px';
 	      var containerBounds = this.boundsContainer.getBoundingClientRect();
 	      var rootBounds = this.root.getBoundingClientRect();
 	      var shift = 0;
 	      if (rootBounds.right > containerBounds.right) {
 	        shift = containerBounds.right - rootBounds.right;
-	        this.root.style.left = left + shift + 'px';
+	        /*this.root.style.left = left + shift + 'px';*/
 	      }
 	      if (rootBounds.left < containerBounds.left) {
 	        shift = containerBounds.left - rootBounds.left;
-	        this.root.style.left = left + shift + 'px';
+	        /*this.root.style.left = left + shift + 'px';*/
 	      }
+        /* Purple custom - start */
+        this.root.style.left = (this.quill.container.offsetWidth - this.root.offsetWidth) / 2; 
+        /* Purple custom - end */
 	      this.checkBounds();
 	      return shift;
 	    }
