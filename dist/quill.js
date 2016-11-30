@@ -9366,19 +9366,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function position(reference) {
 	      var left = reference.left + reference.width / 2 - this.root.offsetWidth / 2;
 	      var top = reference.bottom + this.quill.root.scrollTop;
-	      this.root.style.left = left + 'px';
 	      this.root.style.top = top + 'px';
+        this.root.style.zIndex = "1000";
 	      var containerBounds = this.boundsContainer.getBoundingClientRect();
 	      var rootBounds = this.root.getBoundingClientRect();
 	      var shift = 0;
 	      if (rootBounds.right > containerBounds.right) {
 	        shift = containerBounds.right - rootBounds.right;
-	        this.root.style.left = left + shift + 'px';
+	        /*this.root.style.left = left + shift + 'px';*/
 	      }
 	      if (rootBounds.left < containerBounds.left) {
 	        shift = containerBounds.left - rootBounds.left;
-	        this.root.style.left = left + shift + 'px';
+	        /*this.root.style.left = left + shift + 'px';*/
 	      }
+        /* Purple custom - start */
+        this.root.style.left = (this.quill.container.offsetWidth - this.root.offsetWidth) / 2; 
+        /* Purple custom - end */
 	      this.checkBounds();
 	      return shift;
 	    }
@@ -9558,7 +9561,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return BubbleTooltip;
 	}(_base.BaseTooltip);
 
-	BubbleTooltip.TEMPLATE = ['<span class="ql-tooltip-arrow"></span>', '<div class="ql-tooltip-editor">', '<input type="text" data-formula="e=mc^2" data-link="quilljs.com" data-video="Embed URL">', '<a class="ql-close"></a>', '</div>'].join('');
+	/*BubbleTooltip.TEMPLATE = ['<span class="ql-tooltip-arrow"></span>', '<div class="ql-tooltip-editor">', '<input type="text" data-formula="e=mc^2" data-link="quilljs.com" data-video="Embed URL">', '<a class="ql-close"></a>', '</div>'].join('');*/
+
+  BubbleTooltip.TEMPLATE = ['<div class="ql-tooltip-editor">', '<input type="text" data-formula="e=mc^2" data-link="quilljs.com" data-video="Embed URL">', '<a class="ql-close"></a>', '</div>'].join('');
 
 	exports.default = BubbleTheme;
 
