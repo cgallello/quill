@@ -6480,6 +6480,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	      function paste() {
 	        delta = delta.concat(this.convert());
+          /* purple - remove background color of pasted data */
+          for (var item of delta.ops){
+            if(item.attributes) {
+              delete item.attributes.background;
+            }
+          }
+          /* purple - remove background color of pasted data */
 	        this.quill.updateContents(delta, _quill2.default.sources.USER);
 	        // range.length contributes to delta.length()
 	        this.quill.setSelection(delta.length() - range.length, _quill2.default.sources.SILENT);
