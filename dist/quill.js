@@ -9367,7 +9367,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var left = reference.left + reference.width / 2 - this.root.offsetWidth / 2;
 	      var top = reference.bottom + this.quill.root.scrollTop;
 	      this.root.style.top = top + 'px';
-        this.root.style.zIndex = "1000";
 	      var containerBounds = this.boundsContainer.getBoundingClientRect();
 	      var rootBounds = this.root.getBoundingClientRect();
 	      var shift = 0;
