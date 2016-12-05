@@ -6481,13 +6481,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	      function paste() {
 	        delta = delta.concat(this.convert());
           /* purple - remove background color of pasted data */
-          for (var item of delta.ops){
-            if(item.attributes) {
-              delete item.attributes.background;
+          for (var i=0; i < delta.ops.length; i++ ){
+            if(delta.ops[i].attributes) {
+              delete delta.ops[i].attributes.background;
             }
           }
           /* purple - remove background color of pasted data */
-	        this.quill.updateContents(delta, _quill2.default.sources.USER);
+	        this.quill.updateContents(delta, _quill2.default.sources.USER);          
 	        // range.length contributes to delta.length()
 	        this.quill.setSelection(delta.length() - range.length, _quill2.default.sources.SILENT);
 	      }
@@ -9374,6 +9374,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var left = reference.left + reference.width / 2 - this.root.offsetWidth / 2;
 	      var top = reference.bottom + this.quill.root.scrollTop;
 	      this.root.style.top = top + 'px';
+        this.root.style.zIndex = "1000";
 	      var containerBounds = this.boundsContainer.getBoundingClientRect();
 	      var rootBounds = this.root.getBoundingClientRect();
 	      var shift = 0;
@@ -9385,8 +9386,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        shift = containerBounds.left - rootBounds.left;
 	        /*this.root.style.left = left + shift + 'px';*/
 	      }
+        this.root.style.left = (this.quill.container.offsetWidth - this.root.offsetWidth) / 2;
         /* Purple custom - start */
-        this.root.style.left = (this.quill.container.offsetWidth - this.root.offsetWidth) / 2; 
+        if (this.root.offsetWidth < 320 ){
+          this.root.style.width = 165;
+          this.root.style.left = (this.quill.container.offsetWidth - this.root.offsetWidth - 80) / 2;
+        }         
         /* Purple custom - end */
 	      this.checkBounds();
 	      return shift;
@@ -9569,7 +9574,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/*BubbleTooltip.TEMPLATE = ['<span class="ql-tooltip-arrow"></span>', '<div class="ql-tooltip-editor">', '<input type="text" data-formula="e=mc^2" data-link="quilljs.com" data-video="Embed URL">', '<a class="ql-close"></a>', '</div>'].join('');*/
 
-  BubbleTooltip.TEMPLATE = ['<div class="ql-tooltip-editor">', '<input type="text" data-formula="e=mc^2" data-link="quilljs.com" data-video="Embed URL">', '<a class="ql-close"></a>', '</div>'].join('');
+  BubbleTooltip.TEMPLATE = ['<div class="ql-tooltip-editor">', '<input type="text" data-formula="e=mc^2" data-link="Paste a link" data-video="Embed URL">', '<a class="ql-close"></a>', '</div>'].join('');
 
 	exports.default = BubbleTheme;
 
