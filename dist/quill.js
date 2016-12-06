@@ -6482,7 +6482,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        delta = delta.concat(this.convert());
           /* purple - remove background color of pasted data */
           for (var i=0; i < delta.ops.length; i++ ){
-            if(delta.ops[i].attributes) {
+            if(delta.ops[i].attributes && delta.ops[i].attributes.background) {
               delete delta.ops[i].attributes.background;
             }
           }
