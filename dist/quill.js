@@ -1935,9 +1935,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (options.placeholder) {
 	      this.root.dataset.placeholder = options.placeholder;
 	    }
-	    this.root.classList.toggle('ql-blank', this.editor.isBlank());
-	    this.emitter.on(_emitter2.default.events.TEXT_CHANGE, function (delta) {
-	      _this2.root.classList.toggle('ql-blank', _this2.editor.isBlank());
+	    /*this.root.classList.toggle('ql-blank', this.editor.isBlank());*/  // purple - update
+	    this.emitter.on(_emitter2.default.events.EDITOR_CHANGE, function (delta) {
+        if (delta === _emitter2.default.events.TEXT_CHANGE) {  // purple - update
+	        _this2.root.classList.toggle('ql-blank', _this2.editor.isBlank());
+        }
 	    });
 	  }
 
