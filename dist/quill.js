@@ -9565,9 +9565,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function position(reference) {
 	      var shift = _get(BubbleTooltip.prototype.__proto__ || Object.getPrototypeOf(BubbleTooltip.prototype), 'position', this).call(this, reference);
 	      if (shift === 0) return shift;
-	      var arrow = this.root.querySelector('.ql-tooltip-arrow');
-	      arrow.style.marginLeft = '';
-	      arrow.style.marginLeft = -1 * shift - arrow.offsetWidth / 2 + 'px';
+	      //var arrow = this.root.querySelector('.ql-tooltip-arrow');
+	      //arrow.style.marginLeft = '';
+	      //arrow.style.marginLeft = -1 * shift - arrow.offsetWidth / 2 + 'px';
 	    }
 	  }]);
 
