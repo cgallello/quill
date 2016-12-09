@@ -9382,19 +9382,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var shift = 0;
 	      if (rootBounds.right > containerBounds.right) {
 	        shift = containerBounds.right - rootBounds.right;
-	        /*this.root.style.left = left + shift + 'px';*/
+          if (this.quill.theme.options.container.className.indexOf("ql-snow") >= 0){
+            this.root.style.left = left + shift + 'px';
+          }	        
 	      }
 	      if (rootBounds.left < containerBounds.left) {
 	        shift = containerBounds.left - rootBounds.left;
-	        /*this.root.style.left = left + shift + 'px';*/
+          if (this.quill.theme.options.container.className.indexOf("ql-snow") >= 0){
+            this.root.style.left = left + shift + 'px'
+          }
 	      }
-        this.root.style.left = (this.quill.container.offsetWidth - this.root.offsetWidth) / 2;
-        /* Purple custom - start */
-        if (this.root.offsetWidth < 320 ){
-          this.root.style.width = 165;
-          this.root.style.left = (this.quill.container.offsetWidth - this.root.offsetWidth - 80) / 2;
-        }         
-        /* Purple custom - end */
+        if (this.quill.theme.options.container.className.indexOf("ql-bubble") >= 0){
+            this.root.style.left = (this.quill.container.offsetWidth - this.root.offsetWidth) / 2;
+            /* Purple custom - start */
+            if (this.root.offsetWidth < 320 ){
+              this.root.style.width = 165;
+              this.root.style.left = (this.quill.container.offsetWidth - this.root.offsetWidth - 80) / 2;
+            }         
+            /* Purple custom - end */
+        }        
 	      this.checkBounds();
 	      return shift;
 	    }
