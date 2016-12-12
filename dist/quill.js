@@ -9394,6 +9394,9 @@ return /******/ (function(modules) { // webpackBootstrap
             this.root.style.left = (left+shift) >= 0 ? left + shift + 'px' : '0px';
           }
 	      }
+        if (this.quill.theme.options.container.className.indexOf("ql-snow") >= 0 && (!this.root.style.left || this.root.style.left < 0)){
+          this.root.style.left = '0px';
+        }
         if (this.quill.theme.options.container.className.indexOf("ql-bubble") >= 0){
             this.root.style.left = (this.quill.container.offsetWidth - this.root.offsetWidth) / 2;
             /* Purple custom - start */
