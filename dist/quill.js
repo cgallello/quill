@@ -9383,13 +9383,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (rootBounds.right > containerBounds.right) {
 	        shift = containerBounds.right - rootBounds.right;
           if (this.quill.theme.options.container.className.indexOf("ql-snow") >= 0){
-            this.root.style.left = left + shift + 'px';
+            /*this.root.style.left = left + shift + 'px';*/
+            this.root.style.left = (left+shift) >= 0 ? left + shift + 'px' : '0px';
           }	        
 	      }
 	      if (rootBounds.left < containerBounds.left) {
 	        shift = containerBounds.left - rootBounds.left;
           if (this.quill.theme.options.container.className.indexOf("ql-snow") >= 0){
-            this.root.style.left = left + shift + 'px'
+            /*this.root.style.left = left + shift + 'px';*/
+            this.root.style.left = (left+shift) >= 0 ? left + shift + 'px' : '0px';
           }
 	      }
         if (this.quill.theme.options.container.className.indexOf("ql-bubble") >= 0){
